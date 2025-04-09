@@ -1,0 +1,8 @@
+services:
+  service-1:
+    build:
+      dockerfile: RiderEAPIssue/Dockerfile
+
+  service-2:
+    build:
+      dockerfile: RiderEAPIssue2/Dockerfile
