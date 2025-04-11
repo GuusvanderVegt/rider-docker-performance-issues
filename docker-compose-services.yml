@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=camunda
+      - POSTGRES_PASSWORD=camunda
+    networks:
+      - rider
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "camunda"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+  camunda:
+    # https://hub.docker.com/r/camunda/camunda-bpm-platform/
+    container_name: camunda-demo
+    build:
+      context: ./tools/Camunda
+      dockerfile: Dockerfile
+    command: "./camunda.sh --production"
+    networks:
+      - rider
+    ports:
+      - "5301:${CAMUNDA_PORT}"
+    environment:
+      - DB_DRIVER=org.postgresql.Driver
+      - DB_URL=jdbc:postgresql://postgres:5432/camunda
+      - DB_USERNAME=camunda
+      - DB_PASSWORD=camunda
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  database:
+
+networks:
+  rider:
+    external: true

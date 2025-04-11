@@ -1,0 +1,40 @@
+services:
+  service-1:
+    container_name: service-1
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue
+        - PROJECT_NAME=RiderEAPIssue
+    networks:
+      - rider
+
+  service-2:
+    container_name: service-2
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue2
+        - PROJECT_NAME=RiderEAPIssue2
+    environment:
+      - DUMMY=1
+    profiles:
+      - rider
+    depends_on:
+      - service-1
+    networks:
+      - rider
+
+  service-3:
+    container_name: service-3
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue3
+        - PROJECT_NAME=RiderEAPIssue3
+    networks:
+      - rider
+
+networks:
+  rider:
+    external: true
