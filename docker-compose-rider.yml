@@ -35,6 +35,96 @@ services:
     networks:
       - rider
 
+  service-4:
+    container_name: service-4
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue4
+        - PROJECT_NAME=RiderEAPIssue4
+    networks:
+      - rider
+
+  service-5:
+    container_name: service-5
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue5
+        - PROJECT_NAME=RiderEAPIssue5
+    networks:
+      - rider
+
+  service-6:
+    container_name: service-6
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue6
+        - PROJECT_NAME=RiderEAPIssue6
+    networks:
+      - rider
+
+  service-7:
+    container_name: service-7
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue7
+        - PROJECT_NAME=RiderEAPIssue7
+    networks:
+      - rider
+
+  service-48:
+    container_name: service-8
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue8
+        - PROJECT_NAME=RiderEAPIssue8
+    networks:
+      - rider
+
+  service-9:
+    container_name: service-9
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue9
+        - PROJECT_NAME=RiderEAPIssue9
+    networks:
+      - rider
+
+  service-10:
+    container_name: service-10
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue10
+        - PROJECT_NAME=RiderEAPIssue10
+    networks:
+      - rider
+
+  service-11:
+    container_name: service-11
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue11
+        - PROJECT_NAME=RiderEAPIssue11
+    networks:
+      - rider
+
+  service-12:
+    container_name: service-12
+    build:
+      context: ./src/
+      args:
+        - PROJECT_FOLDER=RiderEAPIssue12
+        - PROJECT_NAME=RiderEAPIssue12
+    networks:
+      - rider
+
 networks:
   rider:
     external: true
